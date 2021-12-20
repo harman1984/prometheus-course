@@ -1,5 +1,11 @@
 #!/bin/bash
-ALERTMANAGER_VERSION="0.15.0"
+if [[ -z $1 ]]
+then
+  ALERTMANAGER_VERSION="0.15.0"
+else
+  ALERTMANAGER_VERSION="$1"
+fi
+
 wget https://github.com/prometheus/alertmanager/releases/download/v${ALERTMANAGER_VERSION}/alertmanager-${ALERTMANAGER_VERSION}.linux-amd64.tar.gz
 tar xvzf alertmanager-${ALERTMANAGER_VERSION}.linux-amd64.tar.gz
 cd alertmanager-${ALERTMANAGER_VERSION}.linux-amd64/
