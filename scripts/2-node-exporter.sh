@@ -1,5 +1,11 @@
 #!/bin/bash
-NODE_EXPORTER_VERSION="0.16.0"
+if [[ -z $1 ]]
+then
+  NODE_EXPORTER_VERSION="1.3.1"
+else
+  NODE_EXPORTER_VERSION="$1"
+fi
+
 wget https://github.com/prometheus/node_exporter/releases/download/v${NODE_EXPORTER_VERSION}/node_exporter-${NODE_EXPORTER_VERSION}.linux-amd64.tar.gz
 tar -xzvf node_exporter-${NODE_EXPORTER_VERSION}.linux-amd64.tar.gz
 cd node_exporter-${NODE_EXPORTER_VERSION}.linux-amd64

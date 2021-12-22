@@ -1,7 +1,7 @@
 #!/bin/bash
 if [[ -z $1 ]]
 then
-  ALERTMANAGER_VERSION="0.15.0"
+  ALERTMANAGER_VERSION="0.23.0"
 else
   ALERTMANAGER_VERSION="$1"
 fi

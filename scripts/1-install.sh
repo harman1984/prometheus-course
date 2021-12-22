@@ -1,7 +1,7 @@
 #!/bin/bash
 if [[ -z $1 ]]
 then
-  PROMETHEUS_VERSION="2.2.1"
+  PROMETHEUS_VERSION="2.32.1"
 else
   PROMETHEUS_VERSION="$1"
 fi
