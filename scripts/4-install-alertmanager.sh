@@ -61,9 +61,10 @@ systemctl start alertmanager
 systemctl start prometheus
 
 
-echo "(1/2)Setup complete.
-Add the following lines and substitute with correct values to /etc/alertmanager/alertmanager.yml:
+echo "(1/2)Setup complete."
 
+#Add the following lines and substitute with correct values to /etc/alertmanager/alertmanager.yml:
+cat > /etc/alertmanager/alertmanager.yml << EOF
 global:
   smtp_smarthost: 'localhost:25'
   smtp_from: 'alertmanager@prometheus.com'
@@ -86,9 +87,9 @@ receivers:
   - api_url: https://hooks.slack.com/services/XXXXXX/XXXXXX/XXXXXX
     channel: '#prometheus-course'
     send_resolved: true
- "
+EOF
 
-  echo "(2/2)Setup complete.
+echo "(2/2)Setup complete.
 Alter the following config in /etc/prometheus/prometheus.yml:
 
 alerting:
