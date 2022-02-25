@@ -89,12 +89,12 @@ receivers:
     send_resolved: true
 EOF
 
+if [[ -f /etc/prometheus/prometheus.yml ]]
+then
+  sed -i 's/\#\ -\ alertmanager:9093/\ -\ localhost:9093/g' /etc/prometheus/prometheus.yml
+  echo "seted alertmanager host in prometheus.yml"
+else
+  echo "/etc/prometheus/prometheus.yml file didn't find"
+fi
+
 echo "(2/2)Setup complete.
-Alter the following config in /etc/prometheus/prometheus.yml:
-
-alerting:
-  alertmanagers:
-  - static_configs:
-    - targets:
-      - localhost:9093"
-
